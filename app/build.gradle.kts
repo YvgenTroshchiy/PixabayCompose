@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
 }
 
@@ -26,10 +28,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "1.8" }
+    kotlinOptions { jvmTarget = "17" }
     buildFeatures { compose = true }
     composeOptions { kotlinCompilerExtensionVersion = "1.4.3" }
     packaging {
@@ -40,7 +42,7 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.10.0")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.1")
@@ -50,6 +52,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+
+    implementation("com.google.dagger:hilt-android:2.46")
+    kapt("com.google.dagger:hilt-android-compiler:2.46")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
