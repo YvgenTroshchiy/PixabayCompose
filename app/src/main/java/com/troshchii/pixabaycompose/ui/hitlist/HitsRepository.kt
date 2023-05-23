@@ -1,4 +1,4 @@
-package com.troshchii.pixabaycompose.ui.list
+package com.troshchii.pixabaycompose.ui.hitlist
 
 import com.troshchii.pixabaycompose.data.Hit
 import com.troshchii.pixabaycompose.data.HitsPagingSource
@@ -26,9 +26,17 @@ class HitsRepositoryImpl @Inject constructor(
             safeSearch = true,
             page = 1,
             perPage = 10
-        ).body()?.toUi() ?: emptyList()
+        )
 
-        return result
+        val body = result.body()
+
+//        return if (result.isSuccessful && body != null) {
+//            val hits: List<Hit> = body.toUi()
+//        } else {
+//
+//        }
+
+        return body?.toUi() ?: emptyList()
     }
 
 //    override fun load(): Flow<PagingData<Hit>> = Pager(

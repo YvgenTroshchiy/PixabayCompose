@@ -1,4 +1,4 @@
-package com.troshchii.pixabaycompose.ui.list
+package com.troshchii.pixabaycompose.ui.hitlist
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize

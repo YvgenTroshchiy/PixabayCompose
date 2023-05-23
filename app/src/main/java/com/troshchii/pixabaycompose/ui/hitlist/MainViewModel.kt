@@ -1,4 +1,4 @@
-package com.troshchii.pixabaycompose.ui.list
+package com.troshchii.pixabaycompose.ui.hitlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

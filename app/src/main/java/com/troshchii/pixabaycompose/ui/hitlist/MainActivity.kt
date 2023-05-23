@@ -1,4 +1,4 @@
-package com.troshchii.pixabaycompose.ui.list
+package com.troshchii.pixabaycompose.ui.hitlist
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

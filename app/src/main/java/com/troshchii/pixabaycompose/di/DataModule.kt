@@ -1,7 +1,7 @@
 package com.troshchii.pixabaycompose.di
 
-import com.troshchii.pixabaycompose.ui.list.HitsRepository
-import com.troshchii.pixabaycompose.ui.list.HitsRepositoryImpl
+import com.troshchii.pixabaycompose.ui.hitlist.HitsRepository
+import com.troshchii.pixabaycompose.ui.hitlist.HitsRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
