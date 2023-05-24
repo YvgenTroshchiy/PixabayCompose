@@ -2,7 +2,6 @@ package com.troshchii.pixabaycompose.ui.hitlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
 import com.troshchii.pixabaycompose.data.Hit
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,6 +14,9 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val repository: HitsRepository
 ) : ViewModel() {
+
+    private val _state: MutableStateFlow<HitListState> = MutableStateFlow(HitListState.Loading)
+    val state: StateFlow<HitListState> = _state.asStateFlow()
 
     private val _hits = MutableStateFlow<List<Hit>>(emptyList())
     val hits: StateFlow<List<Hit>> = _hits.asStateFlow()
@@ -40,7 +42,8 @@ sealed class HitListActions {
     object GetHit : HitListActions()
 }
 
-sealed interface MainActivityUiState {
-    object Loading : MainActivityUiState
-    data class Success(val data: PagingData<Hit>) : MainActivityUiState
+sealed interface HitListState {
+    object Loading : HitListState
+    data class Success(val data: List<Hit>) : HitListState
+    data class Error(val data: Throwable) : HitListState
 }
